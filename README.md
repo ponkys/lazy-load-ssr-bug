@@ -43,6 +43,6 @@ TypeError: Cannot read property 'call' of undefined
 
 ## Issues found
 
-I found this thread regarding similar issues but none of them talks about angular v8
+I found this thread regarding similar issues it doesn't talk about angular v8
 
 `https://github.com/angular/angular/issues/27023`
