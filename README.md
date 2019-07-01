@@ -2,26 +2,37 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
-## Development server
+commands that I used to generate this code:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```bash
+# 1. Create angular app
+ng new myLazyApp
+# 2. Add Angular universal
+ng add @nguniversal/express-engine --clientProject myLazyApp
+# 3.
+ng generate module customers --routing
+# 5. add lazy load route to this new module in ./app/app-routing.module.ts
+# Doesn't work with 'src/app/customers/customers.module' either
+{
+    path: 'orders',
+    loadChildren: () => import('./customers/customers.module').then(mod => mod.CustomersModule)
+},
+# 6. add test component and add it to the customer's module routes.
+ng g component test
+```
 
-## Code scaffolding
+## Start the project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+  npm install
+  npm run build:ssr && npm run serve:ssr
+```
 
-## Build
+go to `localhost:3000`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Error in server-side
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```ts
+ERROR { Error: Uncaught (in promise): TypeError: Cannot read property 'call' of undefined
+TypeError: Cannot read property 'call' of undefined
+```

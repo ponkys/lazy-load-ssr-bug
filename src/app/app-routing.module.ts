@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'orders',
-    loadChildren: () => import('./customers/customers.module').then(mod => mod.CustomersModule)
+    // doesn't work with 'src/app/customers/customers.module' either
+    loadChildren: () => import('src/app/customers/customers.module').then(mod => mod.CustomersModule)
   },
 ];
 
