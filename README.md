@@ -30,9 +30,19 @@ ng g component test
 
 go to `localhost:3000`
 
+## Hack
+
+You can play with the old way to import the lazy loaded modules but it has it's downsides. Check `src/app/app-routing.module.ts`
+
 ## Error in server-side
 
 ```ts
 ERROR { Error: Uncaught (in promise): TypeError: Cannot read property 'call' of undefined
 TypeError: Cannot read property 'call' of undefined
 ```
+
+## Issues found
+
+I found this thread regarding similar issues but none of them talks about angular v8
+
+`https://github.com/angular/angular/issues/27023`
